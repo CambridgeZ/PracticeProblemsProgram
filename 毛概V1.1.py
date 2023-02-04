@@ -6,7 +6,7 @@ import pandas as pd
 import xlwt 
 import random
 import time
-##import string
+import string
 
 print("本程序由NJMU2020级XueJingyuan设计，转载请注明出处。\n若出现bug可联系QQ:2465610238")
 
@@ -43,7 +43,11 @@ while Platinum==1:
         print("\n请再次选择功能：\n0.顺序做题\n1.随机抽题(不重复)\n2.错题回顾(顺序)\n3.清空错题库\n4.退出")
     choose=input("\n请输入：")
     if choose=="0":
-        serialnumber=0 #本题序号
+        serialnumber = 0  # 本题序号
+        with open('lastFinish.txt', 'r') as f:
+            lastRecord = f.readline()  # 本题序号
+        if (len(lastRecord) > 0):
+            serialnumber = int(lastRecord)
         totalnumber=0   #总的题目数量
         rightnumber=0
         wrongnumber=len(xl)
@@ -53,6 +57,9 @@ while Platinum==1:
         totalstarttime=time.time()
         while flag==True:
             for randomnumber in range(len(df)):
+
+                if(df.values[randomnumber][1]<serialnumber):#实现顺序做题的功能，在退出后可以从上一次退出的地方继续做题
+                    continue
                 listcontent1=df.values[randomnumber]
                 count+=1
                 listcontent=[]
@@ -60,8 +67,8 @@ while Platinum==1:
                 for r in range(len(listcontent1)):
                     listcontent.append(listcontent1[r])
                 newlist=[]
-                chapter=listcontent[2]
-                correctanswer=listcontent[8]
+                chapter=listcontent[2] #章节
+                correctanswer=listcontent[8] #正确答案
                 correctcontent=[]
                 print("\n当前进度{}/{}".format(count,len(df)))
                 answerindex=0
@@ -123,6 +130,10 @@ while Platinum==1:
                     check=input("你真的要退出吗，输入1退出：")
                     if check=="1":
                         serialnumber=newlist[1]
+                        serialnumber = newlist[1]
+                        recordOfFinishFilaname = './lastFinish.txt'
+                        with open(recordOfFinishFilaname, 'w') as file_object:
+                            file_object.write(str(serialnumber) + '\n')
                         flag=False
                         break
                 elif str(answer)!=str(newanswer):
@@ -130,7 +141,7 @@ while Platinum==1:
 
                     #错题直接保存到excel文件当中的方案出错，暂时用将提好裤子保存到文件txt当中
                     wrongNumberRecordFileName = './错题记录.txt'
-                    with open(wrongNumberRecordFileName,'w') as file_object:
+                    with open(wrongNumberRecordFileName,'a') as file_object:
                         file_object.write(str(listcontent[1])+'\n')
                     
                     print("答案错误，本题答案是",newanswer)
