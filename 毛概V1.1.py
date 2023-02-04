@@ -127,9 +127,14 @@ while Platinum==1:
                         break
                 elif str(answer)!=str(newanswer):
                     #将错题保存到用于存放错题的excel文件当中
+
+                    #错题直接保存到excel文件当中的方案出错，暂时用将提好裤子保存到文件txt当中
+                    wrongNumberRecordFileName = './错题记录.txt'
+                    with open(wrongNumberRecordFileName,'w') as file_object:
+                        file_object.write(str(listcontent[1])+'\n')
                     
                     print("答案错误，本题答案是",newanswer)
-                    
+
                     totalnumber+=len(newanswer)
                     wrongnumber+=1
                     print("当前正确率{:.2f}%".format(rightnumber/totalnumber*100))
