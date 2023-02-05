@@ -23,7 +23,7 @@ num = 0
 df = pd.read_excel("/Users/mac/Desktop/题库程序/题库.xls")
 
 def beginTheProgram():
-    print("本程序由NJMU2020级XueJingyuan设计，转载请注明出处。\n若出现bug可联系QQ:2465610238")
+    print("本程序由NJMU2020级XueJingyuan设计，转载请注明出处。\n若出现bug可联系QQ:2465610238\n 也可以向代码重构者的邮箱发送邮件 jianqiaozh01@gmail.com")
 
     ##以下是预处理
     df = pd.read_excel("/Users/mac/Desktop/题库程序/题库.xls")
@@ -57,7 +57,7 @@ if __name__ == '__main__':
         elif choose=='1':
             solveTheProblemInRandom.solveTheProblemInRandom()
         elif choose=='2':
-            solveTheWrongProblems.solveTheWrongProblems()
+            solveTheWrongProblems.solveTheWrongProblems(df)
         elif choose=='3':
             print("\n你真的要清空全部错题吗？")
             m = input("\n输入yes表示确定,输入其他任意字符退出：")
