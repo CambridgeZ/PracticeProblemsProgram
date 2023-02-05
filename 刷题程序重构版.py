@@ -62,12 +62,14 @@ if __name__ == '__main__':
             print("\n你真的要清空全部错题吗？")
             m = input("\n输入yes表示确定,输入其他任意字符退出：")
             if m == "yes":
-                pt1 = xlwt.Workbook()
-                xs1 = pt1.add_sheet("Sheet1")
-                pt1.save("/Users/mac/Desktop/题库程序/错题记录1.xls")
-                pt2 = xlwt.Workbook()
-                xs2 = pt2.add_sheet("Sheet1")
-                pt2.save("/Users/mac/Desktop/题库程序/错题记录2.xls")
+                with open('./错题记录.txt','r+') as f:
+                    f.truncate(0)
+                # pt1 = xlwt.Workbook()
+                # xs1 = pt1.add_sheet("Sheet1")
+                # pt1.save("/Users/mac/Desktop/题库程序/错题记录1.xls")
+                # pt2 = xlwt.Workbook()
+                # xs2 = pt2.add_sheet("Sheet1")
+                # pt2.save("/Users/mac/Desktop/题库程序/错题记录2.xls")
                 print("\n清除错题成功")
             else:
                 print("\n取消清除错题成功")
