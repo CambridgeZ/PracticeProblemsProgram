@@ -2,8 +2,6 @@ import random
 import time
 def solveTheWrongProblems(df):
 
-    # print("功能还在开发当中，敬请期待")
-    # return
     count=0
     rightnumber=0
     totalnumber=0

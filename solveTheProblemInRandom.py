@@ -14,7 +14,7 @@ def solveTheProblemInRandom(df,xl,ws1):
     rightnumber = 0
     wrongnumber = len(xl)
     flag = True
-    numlist = []
+    # numlist = []
     count = 0
     totalstarttime = time.time()
     while flag == True:
@@ -22,7 +22,6 @@ def solveTheProblemInRandom(df,xl,ws1):
         randomnumber = random.randint(1, len(df) - 1)
         if not isHaveBeingDone[randomnumber] :
             isHaveBeingDone[randomnumber]=True
-            listcontent1 = df.values[randomnumber]
             count += 1
             listcontent1 = df.values[randomnumber]
             ##listcontent的第3号是题干第4-8号为A-E选项，答案的索引是9，题型的索引是10，题号是2

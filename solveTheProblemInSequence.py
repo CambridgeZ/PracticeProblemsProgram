@@ -110,11 +110,11 @@ def solveTheProblemInSequence(xl,df,ws1):# 顺序做题
                 totalnumber += len(newanswer)
                 wrongnumber += 1
                 print("当前正确率{:.2f}%".format(rightnumber / totalnumber * 100))
-                for t in range(len(newlist)):
-                    if str(newlist[t]) != "nan":
-                        ws1.write(wrongnumber, t, newlist[t])
-                    else:
-                        ws1.write(wrongnumber, t, " ")
+                # for t in range(len(newlist)):
+                #     if str(newlist[t]) != "nan":
+                #         ws1.write(wrongnumber, t, newlist[t])
+                #     else:
+                #         ws1.write(wrongnumber, t, " ")
             print("本题用时{:.3f}s".format(usedtime))
         else:
             continue
