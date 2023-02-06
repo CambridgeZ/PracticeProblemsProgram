@@ -55,7 +55,7 @@ if __name__ == '__main__':
         if choose=='0':
             solveTheProblemInSequence.solveTheProblemInSequence(xl,df,ws1)
         elif choose=='1':
-            solveTheProblemInRandom.solveTheProblemInRandom()
+            solveTheProblemInRandom.solveTheProblemInRandom(df,xl,ws1)
         elif choose=='2':
             solveTheWrongProblems.solveTheWrongProblems(df)
         elif choose=='3':

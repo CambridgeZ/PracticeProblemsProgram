@@ -1,9 +1,13 @@
 import random
 import EndAnswering
+import time
+import xlwt
+import pandas as pd
 
-def solveTheProblemInRandom():
-    print("功能仍然在开发当中，敬请期待")
-    return
+def solveTheProblemInRandom(df,xl,ws1):
+    # print("功能仍然在开发当中，敬请期待")
+    # return
+    print("目前随机做题功能暂时不支持记录错题的功能\n")
 
     serialnumber = 0
     totalnumber = 0
@@ -14,10 +18,11 @@ def solveTheProblemInRandom():
     count = 0
     totalstarttime = time.time()
     while flag == True:
+        isHaveBeingDone =[False] * len(df)
         randomnumber = random.randint(1, len(df) - 1)
-        listcontent1 = df.values[randomnumber]
-        if randomnumber not in numlist:
-            numlist.append(randomnumber)
+        if not isHaveBeingDone[randomnumber] :
+            isHaveBeingDone[randomnumber]=True
+            listcontent1 = df.values[randomnumber]
             count += 1
             listcontent1 = df.values[randomnumber]
             ##listcontent的第3号是题干第4-8号为A-E选项，答案的索引是9，题型的索引是10，题号是2
