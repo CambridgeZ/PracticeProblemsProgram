@@ -19,7 +19,6 @@ ws1.write(0, 8, "答案")
 ws1.write(0, 9, "题型")
 
 
-num = 0
 df = pd.read_excel("/Users/mac/Desktop/题库程序/题库.xls")
 
 def beginTheProgram():
@@ -33,15 +32,14 @@ def beginTheProgram():
     print("\nV2.0更新内容：选项随机排列功能,优化了显示界面\n")
     print("\nTips:\n1.错题回顾不设次数限制\n2.如果直接关闭程序会导致错题无法记录\n3.请按设定输入字符!!!\n")
     print("\n请选择功能：\n0.顺序做题\n1.随机抽题(不重复)\n2.错题回顾(顺序)\n3.清空错题库\n4.退出")
-    num=0
 
 
 if __name__ == '__main__':
 
     beginTheProgram()
 
-    FLAG=1
-    while(FLAG):
+    num = 0
+    while(True):
         xl = pd.read_excel("/Users/mac/Desktop/题库程序/错题记录2.xls") # 通过读xls文件得到的二维数组
         # for a in range(len(xl)):
         #     listwrong1 = xl.values[a]
@@ -49,6 +47,7 @@ if __name__ == '__main__':
         #         if str(listwrong1[b]) != "nan":
         #             ws1.write(a + 1, b, listwrong1[b])
         num += 1
+        # 切换功能的时候使用，也就是第一次不使用，后面每次到这一步的时候会重复询问是否选择功能
         if num != 1:
             print("\n请再次选择功能：\n0.顺序做题\n1.随机抽题(不重复)\n2.错题回顾(顺序)\n3.清空错题库\n4.退出")
         choose = input("\n请输入：")
