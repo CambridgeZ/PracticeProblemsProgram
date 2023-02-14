@@ -6,6 +6,7 @@ def solveTheWrongProblems(df):
     rightnumber=0
     totalnumber=0
     wrongProblemsRecordFilenam='./错题记录.txt'
+
     with open(wrongProblemsRecordFilenam,'r') as f:
         lastRecord = f.readlines()  # 本题序号
 
@@ -91,12 +92,16 @@ def solveTheWrongProblems(df):
                         file_object.write(str(serialnumber) + '\n')
                     flag = False
                     break
-            wrongProblemNumber=wrongProblemNumber+1
+            elif str(answer) != str(newanswer):
+                wrongProblemNumber=wrongProblemNumber+1
+                print("答案错误，本题答案是", newanswer)
+                print("当前正确率{:.2f}%".format(rightnumber / totalnumber * 100))
             if(wrongProblemNumber>=len(lastRecord)):
                 break
         else:
             numberNowBeDown=numberNowBeDown+1
             continue
+
 
 
 

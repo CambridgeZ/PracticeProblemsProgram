@@ -19,7 +19,7 @@ ws1.write(0, 8, "答案")
 ws1.write(0, 9, "题型")
 
 
-df = pd.read_excel("/Users/mac/Desktop/题库程序/题库.xls")
+df = pd.read_excel("./题库.xls")
 
 def beginTheProgram():
     print("本程序由NJMU2020级XueJingyuan设计，转载请注明出处。\n若出现bug可联系QQ:2465610238\n 也可以向代码重构者的邮箱发送邮件 jianqiaozh01@gmail.com")
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 
     num = 0
     while(True):
-        xl = pd.read_excel("/Users/mac/Desktop/题库程序/错题记录2.xls") # 通过读xls文件得到的二维数组
+        xl = pd.read_excel("./错题记录2.xls") # 通过读xls文件得到的二维数组
         # for a in range(len(xl)):
         #     listwrong1 = xl.values[a]
         #     for b in range(len(listwrong1)):
