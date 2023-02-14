@@ -93,9 +93,9 @@ def solveTheWrongProblems(df):
                     flag = False
                     break
             elif str(answer) != str(newanswer):
-                wrongProblemNumber=wrongProblemNumber+1
                 print("答案错误，本题答案是", newanswer)
                 print("当前正确率{:.2f}%".format(rightnumber / totalnumber * 100))
+            wrongProblemNumber = wrongProblemNumber + 1 # 错题序号加一
             if(wrongProblemNumber>=len(lastRecord)):
                 break
         else:
