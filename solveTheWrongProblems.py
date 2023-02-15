@@ -24,7 +24,7 @@ def solveTheWrongProblems(df):
             chapter = listcontent[2]
             correctanswer = listcontent[8]
             correctcontent = []
-            print("\n当前进度{}/{}".format(count, len(df)))
+            print("\n当前进度{}/{}".format(count, len(lastRecord)))
             answerindex = 0
             for t in correctanswer:
                 if t == "A":
